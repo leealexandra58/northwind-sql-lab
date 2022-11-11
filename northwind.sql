@@ -1,0 +1,18 @@
+SELECT * FROM customers;
+SELECT DISTINCT country FROM customers;
+SELECT * FROM customers WHERE customer_id LIKE 'BL%';
+SELECT * FROM orders LIMIT 100;
+SELECT * FROM customers WHERE postal_code = '1010' OR postal_code = '3012' OR postal_code = '12209' OR postal_code = '05023';
+SELECT * FROM orders WHERE ship_region IS NOT null;
+SELECT * FROM customers ORDER BY country, city;
+INSERT INTO customers (customer_id, company_name, contact_name, contact_title, address, city, region, postal_code, country, phone, fax) VALUES ('AJAL', 'Tech Company', 'Allie', 'Developer', '1234 Noneya', 'Troy', '48098', null, 'USA', '1234567899', '1123456789');
+UPDATE orders SET ship_region='EuroZone' WHERE ship_country='France';
+DELETE FROM order_details WHERE quantity=1;
+SELECT AVG(quantity), MAX(quantity), SELECT MIN(quantity) FROM order_details;
+SELECT AVG(quantity) FROM order_details GROUP BY order_id; SELECT MAX(quantity) FROM order_details GROUP BY order_id; SELECT MIN(quantity) FROM order_details GROUP BY order_id;
+SELECT customer_id FROM orders WHERE order_id=10290;
+SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.customer_id; SELECT * FROM orders JOIN customers ON orders.customer_id = customers.customer_id; SELECT * FROM orders LEFT JOIN customers ON orders.customer_id = customers.customer_id; SELECT * FROM orders RIGHT JOIN customers ON orders.customer_id = customers.customer_id;
+SELECT orders.ship_city, orders.ship_country FROM orders LEFT JOIN employees ON employees.country='London';
+SELECT orders.ship_name FROM orders JOIN order_details ON order_details.product_id = 1;
+SELECT first_name FROM employees WHERE reports_to IS NULL;
+SELECT first_name FROM employees WHERE reports_to=2;
